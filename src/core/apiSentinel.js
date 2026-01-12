@@ -1,4 +1,4 @@
-const redisClient = require("../config/redis.config");
+const { redisClient } = require("../config/redis.config");
 const { getRisk } = require("../ai/riskAnalyzer");
 
 const FAILURE_THRESHOLD = 3;
