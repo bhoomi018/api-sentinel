@@ -13,7 +13,7 @@ router.get("/email", async (req, res) => {
 
   try {
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/postss"
+      "https://jsonplaceholder.typicode.com/posts"
     );
     
     await recordSuccess(API_NAME);
