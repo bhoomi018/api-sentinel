@@ -7,7 +7,6 @@ const emailRoute = require("./routes/emailRoute");
 const app = express();
 app.use(express.json());
 
-// 👇 per API sentinel
 app.use("/payment", apiSentinel("payment"));
 app.use("/email", apiSentinel("email"));
 
