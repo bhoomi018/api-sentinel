@@ -1,28 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  apiSentinel,
-  recordFailure,
-  recordSuccess,
-} = require("../core/apiSentinel");
-
-const { callEmailAPI } = require("../services/email.service");
+const { apiSentinel } = require("../core/apiSentinel");
 const { EMAIL } = require("../constants/apiNames");
+const { sendEmail } = require("../controllers/email.controller");
 
-router.get("/", apiSentinel(EMAIL),
-  async (req, res) => {
-    try {
-      const response = await callEmailAPI();
-      await recordSuccess(EMAIL);
-      res.json(response.data);
-    } catch {
-      await recordFailure(EMAIL);
-      res.status(500).json({
-        message: "Email service temporarily unavailable",
-      });
-    }
-  }
-);
+router.get("/", apiSentinel(EMAIL), sendEmail);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 module.exports = {
   EMAIL_API: {
     BASE_URL: "https://jsonplaceholder.typicode.com",
-    PATH: "/posts",
+    PATH: "/postss",
   },
   PAYMENT_API: {
     BASE_URL: "https://jsonplaceholder.typicode.com",
